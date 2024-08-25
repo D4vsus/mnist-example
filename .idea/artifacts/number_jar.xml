@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="number:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/number_jar</output-path>
+    <root id="archive" name="number.jar">
+      <element id="module-output" name="number" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/formdev/flatlaf/3.5.1/flatlaf-3.5.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
