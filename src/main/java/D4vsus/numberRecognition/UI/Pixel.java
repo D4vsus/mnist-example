@@ -1,17 +1,20 @@
-package D4vsus.numberRecognition;
+package D4vsus.numberRecognition.UI;
+
+import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.util.Objects;
 
 /**
  * <h1>Pixel</h1>
- * <p>the minimum part of the image matrix</p>
+ * <p>the minimum part of the model.image matrix</p>
  *
  * @author D4vsus
  */
-public class Pixel implements MouseListener {
+public class Pixel {
     //variables and objects
     private JPanel pixel;
     private JLabel pixelColor;
@@ -28,10 +31,20 @@ public class Pixel implements MouseListener {
      */
     public Pixel(MainWindow mainWindow){
         this.mainWindow = mainWindow;
-        pixelColor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        setBlack();
-        pixelColor.addMouseListener(this);
-        pixel.addMouseListener(this);
+        this.pixelColor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        this.setBlack();
+        this.pixelColor.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                whenClicking();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if(SwingUtilities.isLeftMouseButton(e)) whenClicking();
+            }
+
+        });
     }
 
     /**
@@ -40,7 +53,7 @@ public class Pixel implements MouseListener {
      */
     public void setWhite(){
         this.colorNumber = 1;
-        pixelColor.setIcon(new ImageIcon("resources/white.png"));
+        pixelColor.setIcon(new ImageIcon(Objects.requireNonNull(Main.class.getClassLoader().getResource("white.png"))));
     }
 
     /**
@@ -49,12 +62,13 @@ public class Pixel implements MouseListener {
      */
     public void setBlack(){
         this.colorNumber = 0;
-        pixelColor.setIcon(new ImageIcon("resources/black.png"));
+        pixelColor.setIcon(new ImageIcon(Objects.requireNonNull(Main.class.getClassLoader().getResource("black.png"))));
     }
 
     /**
      * <h1>getColorNumber()</h1>
      * <p>Get the color number</p>
+     *
      * @return int
      */
     public int getColorNumber() {
@@ -74,34 +88,10 @@ public class Pixel implements MouseListener {
     /**
      * <h1>getPixelPanel()</h1>
      * <p>return the panel of the pixel</p>
+     *
      * @return {@link  JPanel}
      */
     public JPanel getPixelPanel() {
         return pixel;
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        whenClicking();
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-      if(SwingUtilities.isLeftMouseButton(e)) whenClicking();
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
     }
 }

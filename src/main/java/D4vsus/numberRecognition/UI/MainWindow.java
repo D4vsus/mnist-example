@@ -1,4 +1,10 @@
-package D4vsus.numberRecognition;
+package D4vsus.numberRecognition.UI;
+
+import D4vsus.numberRecognition.model.ImageToPredict;
+import D4vsus.numberRecognition.network.AppBundle;
+import D4vsus.numberRecognition.network.Client;
+import D4vsus.numberRecognition.network.ServerListener;
+import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,6 +13,8 @@ import java.io.IOException;
 /**
  * <h1>MainWindow</h1>
  * <p>Creates the window</p>
+ *
+ * @author D4vsus
  */
 public class MainWindow extends JFrame{
     //variables and objects
@@ -17,8 +25,10 @@ public class MainWindow extends JFrame{
     private JLabel number;
     private JButton restart;
     private JButton rubber;
+    private JButton ip;
     private boolean isPencil;
     private Pixel[][] pixelBoard;
+    private final Client client;
 
     //methods
 
@@ -30,7 +40,7 @@ public class MainWindow extends JFrame{
         this.add(mainWindow);
         this.setTitle("MNIST");
         this.setBounds(50,50,1000,1000);
-        this.setIconImage(new  ImageIcon(".\\resources\\icon.PNG").getImage());
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("icon.png")));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         setPencil();
@@ -40,11 +50,25 @@ public class MainWindow extends JFrame{
         send.setMnemonic('s');
         pencil.setMnemonic('p');
         rubber.setMnemonic('r');
+        ip.setMnemonic('i');
 
         restart.addActionListener(e -> setAllBlack());
         send.addActionListener(e -> send());
         pencil.addActionListener(e -> setPencil());
         rubber.addActionListener(e -> setRubber());
+        ip.addActionListener(e -> ip());
+
+        client  = new Client(new ServerListener() {
+            @Override
+            public void onConnect(String result) {
+                MainWindow.this.number.setText(result);
+            }
+
+            @Override
+            public void onFail(String result) {
+                MainWindow.this.number.setText(result);
+            }
+        });
 
         this.setVisible(true);
     }
@@ -92,18 +116,6 @@ public class MainWindow extends JFrame{
     }
 
     /**
-     * <h1>setAllWhite()</h1>
-     * <p>set all the pixels to white</p>
-     */
-    private void setAllWhite(){
-        for (Pixel[] pixels : pixelBoard) {
-            for (Pixel pixel : pixels) {
-                pixel.setWhite();
-            }
-        }
-    }
-
-    /**
      * <h1>setPencil()</h1>
      * <p>Activate the pencil</p>
      */
@@ -129,19 +141,31 @@ public class MainWindow extends JFrame{
      */
     private void send(){
         try {
-            Client client;
-            client = new Client("localhost",9999,"localhost",9999);
-            StringBuilder stringBuilder = new StringBuilder();
+            Float[][] image = new Float[28][28];
+            int y = 0;
+            int x = 0;
             for (Pixel[] pixels : pixelBoard){
                 for (Pixel pixel:pixels)
                 {
-                    stringBuilder.append(pixel.getColorNumber()).append(" ");
+                    image[y][x] = (float)pixel.getColorNumber();
+                    x++;
                 }
+                x = 0;
+                y++;
             }
-            this.number.setText(client.send(stringBuilder.toString()));
-            client.closeSocket();
+            ImageToPredict imageToPredict = new ImageToPredict();
+            imageToPredict.setImage(image);
+            client.send(imageToPredict);
         } catch (IOException e) {
-            this.number.setText("ERROR: connexion not found, make sure the server is on");
+            this.number.setText(AppBundle.getResourceBundle().getString("connection_error"));
         }
+    }
+
+    /**
+     * <h1>ip()</h1>
+     * <p>Open the dialog to set the Socket to comunicate</p>
+     */
+    private void ip(){
+        new IPWindow();
     }
 }

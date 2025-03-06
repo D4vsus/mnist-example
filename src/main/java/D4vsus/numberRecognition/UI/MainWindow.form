@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="D4vsus.numberRecognition.MainWindow">
-  <grid id="27dc6" binding="mainWindow" layout-manager="GridLayoutManager" row-count="3" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="D4vsus.numberRecognition.UI.MainWindow">
+  <grid id="27dc6" binding="mainWindow" layout-manager="GridLayoutManager" row-count="3" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="643" height="400"/>
+      <xy x="20" y="20" width="936" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="bda02" binding="image" layout-manager="GridBagLayout">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children/>
-      </grid>
       <component id="c699d" class="javax.swing.JButton" binding="send">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -23,7 +15,7 @@
         <properties>
           <icon value="AI.png"/>
           <text value=""/>
-          <toolTipText value="send (Alt+s)"/>
+          <toolTipText resource-bundle="lang/lang" key="button.send.ttt"/>
         </properties>
       </component>
       <component id="6a8fc" class="javax.swing.JButton" binding="pencil">
@@ -33,7 +25,7 @@
         <properties>
           <icon value="pencil.png"/>
           <text value=""/>
-          <toolTipText value="pencil (Alt+p)"/>
+          <toolTipText resource-bundle="lang/lang" key="pencil.alt.p"/>
         </properties>
       </component>
       <component id="2a96f" class="javax.swing.JButton" binding="rubber">
@@ -43,7 +35,7 @@
         <properties>
           <icon value="rubber.png"/>
           <text value=""/>
-          <toolTipText value="rubber (Alt+r)"/>
+          <toolTipText resource-bundle="lang/lang" key="rubber.alt.r"/>
         </properties>
       </component>
       <component id="75f71" class="javax.swing.JLabel">
@@ -52,7 +44,7 @@
         </constraints>
         <properties>
           <font name="Arial Black" size="20" style="1"/>
-          <text value="Your number is:"/>
+          <text resource-bundle="lang/lang" key="label.your_number_is"/>
         </properties>
       </component>
       <component id="8926d" class="javax.swing.JLabel" binding="number">
@@ -62,6 +54,7 @@
         <properties>
           <enabled value="true"/>
           <font name="Arial Black" size="20" style="1"/>
+          <labelFor value="73433"/>
           <text value=""/>
         </properties>
       </component>
@@ -72,12 +65,12 @@
         <properties>
           <icon value="back.png"/>
           <text value=""/>
-          <toolTipText value="pencil (Alt+r)"/>
+          <toolTipText resource-bundle="lang/lang" key="pencil.alt.r"/>
         </properties>
       </component>
       <hspacer id="6993b">
         <constraints>
-          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="16f5b">
@@ -85,6 +78,30 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
+      <scrollpane id="73433">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="bda02" binding="image" layout-manager="GridBagLayout">
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </scrollpane>
+      <component id="66c97" class="javax.swing.JButton" binding="ip">
+        <constraints>
+          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="ip.png"/>
+          <text value=""/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
