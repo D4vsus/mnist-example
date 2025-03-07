@@ -153,8 +153,10 @@ public class MainWindow extends JFrame{
                 x = 0;
                 y++;
             }
+
             ImageToPredict imageToPredict = new ImageToPredict();
             imageToPredict.setImage(image);
+
             client.send(imageToPredict);
         } catch (IOException e) {
             this.number.setText(AppBundle.getResourceBundle().getString("connection_error"));
@@ -167,5 +169,6 @@ public class MainWindow extends JFrame{
      */
     private void ip(){
         new IPWindow();
+        client.resetAPI();
     }
 }

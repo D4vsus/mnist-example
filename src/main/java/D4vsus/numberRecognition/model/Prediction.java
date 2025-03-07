@@ -9,9 +9,16 @@ import java.io.Serializable;
  * @author D4vsus
  */
 public class Prediction implements Serializable {
+    //variables and objects
     private String prediction;
 
+    //methods
+
     public Prediction() {
+    }
+
+    public void setPrediction(String prediction) {
+        this.prediction = prediction;
     }
 
     public String getContent() {

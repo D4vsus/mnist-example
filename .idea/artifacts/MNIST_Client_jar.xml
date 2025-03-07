@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="number:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/number_jar</output-path>
+  <artifact type="jar" name="MNIST Client:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MNIST_Client_jar</output-path>
     <root id="archive" name="number.jar">
       <element id="module-output" name="MNIST_PREDICTION" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/formdev/flatlaf/3.5.1/flatlaf-3.5.1.jar" path-in-jar="/" />

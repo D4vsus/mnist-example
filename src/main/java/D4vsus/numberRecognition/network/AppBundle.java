@@ -9,7 +9,10 @@ import java.util.ResourceBundle;
  * @author D4vsus
  */
 public class AppBundle {
+    //variables and objects
     public static ResourceBundle resourceBundle;
+
+    //methods
 
     public static ResourceBundle getResourceBundle(){
         return resourceBundle;

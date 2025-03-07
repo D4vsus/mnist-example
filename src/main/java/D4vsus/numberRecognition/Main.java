@@ -6,6 +6,7 @@ import com.formdev.flatlaf.FlatIntelliJLaf;
 
 import javax.swing.*;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 /**
@@ -16,12 +17,35 @@ import java.util.ResourceBundle;
  */
 public class Main {
     public static void main(String[] args) {
+        //set language
         try {
-            AppBundle.setResourceBundle(ResourceBundle.getBundle("lang/lang", Locale.of("es")));
+            AppBundle.setResourceBundle(ResourceBundle.getBundle("lang/lang", Locale.getDefault()));
+        } catch ( MissingResourceException | NullPointerException ex){
+            AppBundle.setResourceBundle(ResourceBundle.getBundle("lang/lang", Locale.of("en")));
+            JOptionPane.showMessageDialog(null,
+                    AppBundle.getResourceBundle().getString("language_not_supported"),
+                    AppBundle.getResourceBundle().getString("error"),
+                    JOptionPane.WARNING_MESSAGE
+            );
+        }
+        //set look and feel
+        try {
             UIManager.setLookAndFeel( new FlatIntelliJLaf());
-            new MainWindow();
         } catch( UnsupportedLookAndFeelException ex ) {
-            System.err.println( "Failed to initialize LaF" );
+                try {
+                    UIManager.setLookAndFeel(UIManager.getAuxiliaryLookAndFeels()[0]);
+                } catch (UnsupportedLookAndFeelException unsupported) {
+                    throw  new RuntimeException(unsupported);
+                }
+                JOptionPane.showMessageDialog(null,
+                        AppBundle.getResourceBundle().getString("lf_not_set"),
+                        AppBundle.getResourceBundle().getString("error"),
+                        JOptionPane.WARNING_MESSAGE
+                );
+            }
+        //initialize the app
+        try {
+            new MainWindow();
         } catch (Exception ex){
             JOptionPane.showMessageDialog(null,ex.toString(),ex.getClass().getName(),JOptionPane.ERROR_MESSAGE,null);
         }

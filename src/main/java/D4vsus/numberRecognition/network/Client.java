@@ -18,7 +18,7 @@ import java.io.*;
  */
 public class Client {
     //variables and objects
-    private final APIService service = RetroFitClient.getRetrofitInstance().create(APIService.class);
+    private APIService service = RetroFitClient.getRetrofitInstance().create(APIService.class);
     private final ServerListener serverListener;
 
     //methods
@@ -59,5 +59,13 @@ public class Client {
                 serverListener.onFail(throwable.toString());
             }
         });
+    }
+
+    /**
+     * <h1>resetAPI</h1>
+     * <p>Reset the API, use for URL change</p>
+     */
+    public void resetAPI(){
+        service = RetroFitClient.getRetrofitInstance().create(APIService.class);
     }
 }

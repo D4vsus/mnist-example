@@ -77,8 +77,7 @@ public class Pixel {
 
     /**
      * <h1>whenClicking()</h1>
-     * <p>Activates when it's clicked</p>
-     * <p>switch the color of the pixel depending of the pencil or rubber</p>
+     * <p>Activates when it's clicked switch the color of the pixel depending of the pencil or rubber</p>
      */
     public void whenClicking(){
         if (mainWindow.isPencil())setWhite();

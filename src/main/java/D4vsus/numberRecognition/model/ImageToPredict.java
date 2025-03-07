@@ -9,12 +9,19 @@ import java.io.Serializable;
  * @author D4vsus
  */
 public class ImageToPredict implements Serializable {
+    //variables and objects
     private Float[][] image;
+
+    //methods
 
     public ImageToPredict() {
     }
 
     public void setImage(Float[][] image) {
         this.image = image;
+    }
+
+    public Float[][] getImage() {
+        return image;
     }
 }
