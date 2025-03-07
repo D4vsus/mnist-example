@@ -19,7 +19,7 @@ public class Pixel {
     private JPanel pixel;
     private JLabel pixelColor;
     private int colorNumber;
-    private final MainWindow mainWindow;
+    private final PixelChangeListener pixelChangeListener;
 
     //methods
 
@@ -27,12 +27,12 @@ public class Pixel {
      * <h1>Constructor</h1>
      * <p>Build the object</p>
      *
-     * @param mainWindow: {@link MainWindow}
+     * @param pixelChangeListener: {@link PixelChangeListener}
      */
-    public Pixel(MainWindow mainWindow){
-        this.mainWindow = mainWindow;
-        this.pixelColor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    public Pixel(PixelChangeListener pixelChangeListener){
+        this.pixelChangeListener = pixelChangeListener;
         this.setBlack();
+        this.pixelColor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         this.pixelColor.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -80,7 +80,7 @@ public class Pixel {
      * <p>Activates when it's clicked switch the color of the pixel depending of the pencil or rubber</p>
      */
     public void whenClicking(){
-        if (mainWindow.isPencil())setWhite();
+        if (pixelChangeListener.onWrite())setWhite();
         else setBlack();
     }
 

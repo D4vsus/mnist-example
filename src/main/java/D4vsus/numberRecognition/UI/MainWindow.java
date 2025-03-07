@@ -74,16 +74,6 @@ public class MainWindow extends JFrame{
     }
 
     /**
-     * <h1>isPencil()</h1>
-     * <p>return if it's pencil or rubber</p>
-     *
-     * @return boolean
-     */
-    public boolean isPencil(){
-        return isPencil;
-    }
-
-    /**
      * <h1>addImageBoard()</h1>
      * <p>Set up the white board to write</p>
      */
@@ -94,7 +84,7 @@ public class MainWindow extends JFrame{
 
         for (int y = 0;y < pixelBoard.length;y++){
             for (int x = 0;x < pixelBoard[y].length;x++){
-                pixelBoard[y][x] = new Pixel(this);
+                pixelBoard[y][x] = new Pixel(()->isPencil);
                 image.add(pixelBoard[y][x].getPixelPanel(),gridBagConstraints);
                 gridBagConstraints.gridx++;
             }
