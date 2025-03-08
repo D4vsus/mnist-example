@@ -32,3 +32,5 @@ you can use this command to run it in your terminal.
 
 then run the jar application
 and that's all
+
+![image](src/main/resources/MNIST-Example.gif)

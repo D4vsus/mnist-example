@@ -7,5 +7,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/main/D4vsus/numberRecognition/network/APIService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/main/D4vsus/numberRecognition/network/Client.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/MNIST-Example.gif" charset="ISO-8859-1" />
   </component>
 </project>
