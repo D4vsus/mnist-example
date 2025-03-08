@@ -1,4 +1,4 @@
-package D4vsus.numberRecognition.model;
+package com.D4vsus.numberRecognition.model;
 
 import java.io.Serializable;
 

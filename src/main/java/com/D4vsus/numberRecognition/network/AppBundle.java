@@ -1,4 +1,4 @@
-package D4vsus.numberRecognition.network;
+package com.D4vsus.numberRecognition.network;
 
 import java.util.ResourceBundle;
 

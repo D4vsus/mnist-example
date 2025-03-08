@@ -1,4 +1,4 @@
-package D4vsus.numberRecognition.UI;
+package com.D4vsus.numberRecognition.UI;
 
 /**
  * <h1>PixelChangeListener</h1>

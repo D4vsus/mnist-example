@@ -1,7 +1,7 @@
-package D4vsus.numberRecognition;
+package com.D4vsus.numberRecognition;
 
-import D4vsus.numberRecognition.UI.MainWindow;
-import D4vsus.numberRecognition.network.AppBundle;
+import com.D4vsus.numberRecognition.UI.MainWindow;
+import com.D4vsus.numberRecognition.network.AppBundle;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 
 import javax.swing.*;
@@ -30,7 +30,9 @@ public class Main {
         }
         //set look and feel
         try {
-            UIManager.setLookAndFeel( new FlatIntelliJLaf());
+            if (!FlatIntelliJLaf.setup()){
+                throw new UnsupportedLookAndFeelException("");
+            }
         } catch( UnsupportedLookAndFeelException ex ) {
                 try {
                     UIManager.setLookAndFeel(UIManager.getAuxiliaryLookAndFeels()[0]);

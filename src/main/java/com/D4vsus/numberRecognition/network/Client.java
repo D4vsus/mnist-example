@@ -1,7 +1,7 @@
-package D4vsus.numberRecognition.network;
+package com.D4vsus.numberRecognition.network;
 
-import D4vsus.numberRecognition.model.ImageToPredict;
-import D4vsus.numberRecognition.model.Prediction;
+import com.D4vsus.numberRecognition.model.ImageToPredict;
+import com.D4vsus.numberRecognition.model.Prediction;
 import okhttp3.ResponseBody;
 import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
