@@ -65,7 +65,7 @@
         <properties>
           <icon value="back.png"/>
           <text value=""/>
-          <toolTipText resource-bundle="lang/lang" key="pencil.alt.r"/>
+          <toolTipText resource-bundle="lang/lang" key="clean.alt.r"/>
         </properties>
       </component>
       <hspacer id="6993b">
@@ -100,6 +100,7 @@
         <properties>
           <icon value="ip.png"/>
           <text value=""/>
+          <toolTipText resource-bundle="lang/lang" key="ip.alt.i"/>
         </properties>
       </component>
     </children>

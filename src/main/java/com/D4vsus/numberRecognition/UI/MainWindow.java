@@ -215,7 +215,7 @@ public class MainWindow extends JFrame {
         restart = new JButton();
         restart.setIcon(new ImageIcon(getClass().getResource("/back.png")));
         restart.setText("");
-        restart.setToolTipText(this.$$$getMessageFromBundle$$$("lang/lang", "pencil.alt.r"));
+        restart.setToolTipText(this.$$$getMessageFromBundle$$$("lang/lang", "clean.alt.r"));
         mainWindow.add(restart, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         mainWindow.add(spacer1, new GridConstraints(0, 6, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
@@ -229,6 +229,7 @@ public class MainWindow extends JFrame {
         ip = new JButton();
         ip.setIcon(new ImageIcon(getClass().getResource("/ip.png")));
         ip.setText("");
+        ip.setToolTipText(this.$$$getMessageFromBundle$$$("lang/lang", "ip.alt.i"));
         mainWindow.add(ip, new GridConstraints(0, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         number.setLabelFor(scrollPane1);
     }
@@ -305,4 +306,5 @@ public class MainWindow extends JFrame {
     public JComponent $$$getRootComponent$$$() {
         return mainWindow;
     }
+
 }
